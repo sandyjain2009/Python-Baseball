@@ -5,8 +5,6 @@ import pandas as pd
 game_files = glob.glob(os.path.join(os.getcwd(),'games','*.eve'))
 game_files.sort()
 
-def p(a):
-	print(a)
 
 game_frames = []
 for game_file in game_files:
@@ -22,7 +20,6 @@ identifiers = games['multi2'].str.extract(r'(.LS(\d{4})\d{5})')
 #p(identifiers)
 identifiers = identifiers.fillna(method='ffill')
 
-p("########################___________________")
  
 identifiers.columns =  ['game_id','years']
  
@@ -34,4 +31,4 @@ games = games.fillna(' ')
 games.loc[:,'type'] = pd.Categorical(games.loc[:,'type'])
 
 
-p(games.head())
+print(games.head())
